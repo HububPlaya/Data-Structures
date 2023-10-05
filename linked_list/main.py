@@ -62,6 +62,23 @@ class LinkedList:
         current_node.get_next_node()
     return string_list
   
+  # We are looking for the value to remove 
+  def remove_node(self, value_to_remove):
+    current_node = self.get_head_node()
+    if current_node.get_value() == value_to_remove:
+      self.head_node = current_node.get_next_node()
+    else:
+      while current_node:
+        next_node = current_node.get_next_node()
+        if next_node.get_value() == value_to_remove:
+          current_node.set_next_node(next_node.get_next_node())
+          current_node = None
+        else:
+          current_node = next_node
+
+
+
+  
   # traverse the node -> start at the head node or front of the list 
   # current node -> head_node
   # if head_node is not empty we can go to the next node aka there needs to be nodes lol
